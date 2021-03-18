@@ -1,7 +1,10 @@
+// requiring in mongoose
 const mongoose = require('mongoose');
 
+// creating convenience variable for Schema
 const Schema = mongoose.Schema;
 
+// making our schema with name, value, date
 const transactionSchema = new Schema({
 	name: {
 		type: String,
@@ -20,4 +23,5 @@ const transactionSchema = new Schema({
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
 
+// exporting Transaction
 module.exports = Transaction;
