@@ -13,6 +13,7 @@ router.post('/api/transaction', ({ body }, res) => {
 		});
 });
 
+// set up post route that can post bulk transactions instead of just one
 router.post('/api/transaction/bulk', ({ body }, res) => {
 	Transaction.insertMany(body)
 		.then((dbTransaction) => {
@@ -23,6 +24,7 @@ router.post('/api/transaction/bulk', ({ body }, res) => {
 		});
 });
 
+// set up get route that finds all the transactions and sorts in descending order by date
 router.get('/api/transaction', (req, res) => {
 	Transaction.find({})
 		.sort({ date: -1 })
@@ -34,4 +36,5 @@ router.get('/api/transaction', (req, res) => {
 		});
 });
 
+// exporting router
 module.exports = router;
